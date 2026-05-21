@@ -9,13 +9,44 @@
 <body>
   <main class="container">
     <h1>My TODO</h1>
+    <div class="productivity-panel">
+      <div class="stats">
+        <div>Completed Today: <span id="stat-completed-today">0</span></div>
+        <div>Total Active: <span id="stat-total-active">0</span></div>
+      </div>
+      <div class="pomodoro">
+        <span id="pomodoro-time">25:00</span>
+        <button id="pomodoro-toggle" type="button">Start</button>
+      </div>
+    </div>
     <form id="todo-form">
-      <input id="todo-input" type="text" placeholder="Add new task..." autocomplete="off" required />
-      <button type="submit">Add</button>
+      <div class="input-group">
+        <input id="todo-input" type="text" placeholder="Add new task..." autocomplete="off" required />
+        <button type="submit">Add</button>
+      </div>
+      <div class="options-group">
+        <input id="todo-date" type="date" title="Due Date" />
+        <select id="todo-priority" title="Priority">
+          <option value="Low">Low</option>
+          <option value="Med" selected>Med</option>
+          <option value="High">High</option>
+        </select>
+        <select id="todo-category" title="Category">
+          <option value="" disabled selected>Category</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Errands">Errands</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
     </form>
     <ul id="todo-list"></ul>
+    <div id="action-buttons" style="display: none;">
+      <button id="pick-random-btn" type="button">Pick Random Task</button>
+    </div>
     <p id="empty-msg" class="empty">No tasks yet.</p>
   </main>
+  <script src="https://unpkg.com/sortablejs@latest/Sortable.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
